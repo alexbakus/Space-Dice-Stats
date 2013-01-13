@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     #rand variables
     @whitespace = "&nbsp;".html_safe
     
-    number_of_dice_per_hand = 3
+    number_of_dice_per_hand = 4
     play_multi_hand = false
     @number_of_hands_to_play = 10000
     

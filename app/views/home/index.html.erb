@@ -1,0 +1,52 @@
+<a href="/">roll again</a><br />
+
+
+In <%= @number_of_hands_to_play %> rolls...<br />
+
+<%= @supernova_count %> supernovas were rolled. <%= (@supernova_count.to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />
+<%= @sun_hand_count %> hands were rolled with suns. <%= (@sun_hand_count.to_f / @number_of_hands_to_play.to_f * 100).round(2) %>% <br />
+<%= @sun_and_planet_count %> hands were rolled with suns and planets. <%= (@sun_and_planet_count.to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />
+
+<br />
+<%= @blackhole_array_counts[0] %> hands with 0 black holes. <%= (@blackhole_array_counts[0].to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />
+<%= @blackhole_array_counts[1] %> hands with 1 black holes. <%= (@blackhole_array_counts[1].to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />
+<%= @blackhole_array_counts[2] %> hands with 2 black holes. <%= (@blackhole_array_counts[2].to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />
+<%= @blackhole_array_counts[3] %> hands with 3 black holes. <%= (@blackhole_array_counts[3].to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />
+<%= @blackhole_array_counts[4] %> hands with 4 black holes. <%= (@blackhole_array_counts[4].to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />
+
+
+
+<% @roll.each do |dice| %>
+	<% rand(100).times do %>
+		<%= @whitespace %>
+	<% end %>
+	<% if dice == "green_blackhole" %>
+		<img src="/assets/green_blackhole.png">
+	<% elsif dice == "green_comet" %>
+		<img src="/assets/green_comet.png" style="-webkit-transform: rotate(<%= rand(360) %>deg);">
+	<% elsif dice == "green_planet" %>
+		<img src="/assets/green_planet.png">
+	<% elsif dice == "green_sun" %>
+		<img src="/assets/green_sun.png">
+	<% elsif dice == "orange_blackhole" %>
+		<img src="/assets/orange_blackhole.png">
+	<% elsif dice == "orange_comet" %>
+		<img src="/assets/orange_comet.png" style="-webkit-transform: rotate(<%= rand(360) %>deg);">
+	<% elsif dice == "orange_planet" %>
+		<img src="/assets/orange_planet.png">
+	<% elsif dice == "orange_sun" %>
+		<img src="/assets/orange_sun.png">
+	<% elsif dice == "orange_sun" %>
+		<img src="/assets/orange_supernova.png">
+	<% elsif dice == "red_blackhole" %>
+		<img src="/assets/red_blackhole.png">
+	<% elsif dice == "red_comet" %>
+		<img src="/assets/red_comet.png" style="-webkit-transform: rotate(<%= rand(360) %>deg);">
+	<% elsif dice == "red_planet" %>
+		<img src="/assets/red_planet.png">
+	<% elsif dice == "red_sun" %>
+		<img src="/assets/red_sun.png">
+	<% elsif dice == "red_supernova" %>
+		<img src="/assets/red_supernova.png">
+	<% end %>
+<% end %>

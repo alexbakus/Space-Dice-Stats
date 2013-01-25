@@ -6,6 +6,7 @@ In <%= @number_of_hands_to_play %> rolls...<br />
 <%= @supernova_count %> supernovas were rolled. <%= (@supernova_count.to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />
 <%= @sun_hand_count %> hands were rolled with suns. <%= (@sun_hand_count.to_f / @number_of_hands_to_play.to_f * 100).round(2) %>% <br />
 <%= @sun_and_planet_count %> hands were rolled with suns and planets. <%= (@sun_and_planet_count.to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />
+<%= @comet_count %> hands were rolled with comets flying off into the distance. <%= (@comet_count.to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />
 
 <br />
 <%= @blackhole_array_counts[0] %> hands with 0 black holes. <%= (@blackhole_array_counts[0].to_f / @number_of_hands_to_play.to_f * 100).round(2) %>%<br />

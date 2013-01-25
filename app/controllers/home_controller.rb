@@ -7,33 +7,33 @@ class HomeController < ApplicationController
     
     number_of_dice_per_hand = 4
     play_multi_hand = false
-    @number_of_hands_to_play = 10000
+    @number_of_hands_to_play = 100000
     
     # dice
     
     # green dice
-    number_of_green_dice = 8
+    number_of_green_dice = 7
     
     number_of_green_planets = 5
-    number_of_green_comets = 2
+    number_of_green_comets = 3
     number_of_green_suns = 3
-    number_of_green_blackholes = 2
+    number_of_green_blackholes = 1
     
     # orange dice
-    number_of_orange_dice = 4
+    number_of_orange_dice = 5
     
     number_of_orange_planets = 4
     number_of_orange_comets = 3
-    number_of_orange_suns = 2
-    number_of_orange_blackholes = 3
+    number_of_orange_suns = 3
+    number_of_orange_blackholes = 2
     
     # red dice
-    number_of_red_dice = 2
+    number_of_red_dice = 3
     
     number_of_red_planets = 1
     number_of_red_comets = 3
-    number_of_red_suns = 3
-    number_of_red_blackholes = 4
+    number_of_red_suns = 1
+    number_of_red_blackholes = 6
     number_of_red_supernova = 1
     
     
@@ -120,6 +120,7 @@ class HomeController < ApplicationController
     @supernova_count = 0
     @sun_hand_count = 0
     @sun_and_planet_count = 0
+    @comet_count = 0
     @blackhole_array = []
     
     # do multi hand shit
@@ -148,6 +149,24 @@ class HomeController < ApplicationController
           @supernova_count = @supernova_count+1
         end
       end
+      
+      # count the hands with comets but no black holes or suns
+      @roll.count.times do |int|
+        if @roll[int] == "green_comet" || @roll[int] == "orange_comet" || @roll[int] == "red_comet"
+          @comet_bool = true
+        end
+      end
+      if @comet_bool == true
+        @roll.count.times do |int|
+          if @roll[int] == "green_blackhole" || @roll[int] == "orange_blackhole" || @roll[int] == "red_blackhole" || @roll[int] == "green_sun" || @roll[int] == "orange_sun" || @roll[int] == "red_sun"
+            @comet_bool = false
+          end
+        end
+      end
+      if @comet_bool == true
+        @comet_count = @comet_count+1
+      end
+      @comet_bool = false
       
       # count the hands with no black holes and planets
       @roll.count.times do |int|

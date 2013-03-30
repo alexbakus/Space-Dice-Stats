@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     
     number_of_dice_per_hand = 4
     play_multi_hand = false
-    @number_of_hands_to_play = 100000
+    @number_of_hands_to_play = 1000
     
     # dice
     
